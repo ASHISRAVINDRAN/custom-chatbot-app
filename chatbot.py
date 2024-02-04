@@ -7,6 +7,7 @@ st.set_page_config(page_title="💬 MITK buddy")
 with st.sidebar:
     st.title('💬 MITK buddy')
     st.selectbox('Supported Models:', ('OpenAI', 'Mistral'))
+    is_rag: bool = st.checkbox('Retrieval Augmented Generation')
 
 # Store LLM generated responses
 if "messages" not in st.session_state.keys():
@@ -21,7 +22,7 @@ if "model" not in st.session_state.keys():
     st.session_state.model = MITKOpenAI()
 # Function for generating LLM response
 def generate_response(prompt_input):
-    return st.session_state.model.get_response(prompt_input)
+    return st.session_state.model.get_response(prompt_input, is_rag)
 
 # # User-provided prompt
 if prompt := st.chat_input():

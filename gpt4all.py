@@ -22,7 +22,7 @@ class MITKGPT4All:
         retriever = faiss_index.as_retriever()
         self.chain = RetrievalQA.from_chain_type(llm, retriever=retriever)
 
-    def get_response(self, query: str):
+    def get_response(self, query: str, rag):
         t_start = time.time()
         response = self.chain.run(query)
         print(f'Elapsed: {time.time() - t_start} seconds')
