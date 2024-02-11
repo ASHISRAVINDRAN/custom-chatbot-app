@@ -33,8 +33,8 @@ pip install -r requirements.txt
 
 ## Usage
 
-First put any of your data in PDF format in the `data` folder. 
-Then, to run the Streamlit web app, execute the following command:
+First put any of your data in PDF format in the `data` folder. Update your OPENAI API key in the `secretkey.py` file.
+Then, run the Streamlit web app using the command:
 ```bash
 streamlit run chatbot.py
 ```
